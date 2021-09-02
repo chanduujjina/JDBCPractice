@@ -1,5 +1,5 @@
-divya barnch is added
+divya branch is added
 
-gouse barnch is added
+gouse branch is added
 
 

@@ -2,6 +2,17 @@ package com.jdbc.demo;
 
 public class Sample {
 	
+	@Override
+	public String toString() {
+		return "Sample [id=" + id + ", sampleName=" + sampleName + ", labName=" + labName + ", sampleType=" + sampleType
+				+ "]";
+	}
+
+	public Sample() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Sample(int id, String sampleName, String labName, String sampleType) {
 		super();
 		this.id = id;

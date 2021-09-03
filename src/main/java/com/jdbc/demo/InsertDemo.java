@@ -9,18 +9,28 @@ public class InsertDemo {
 	public static void main(String[] args) throws SQLException {
 		
 		//get the connection
-		
-		Connection conn =DBUtility.getInstance();
+		Connection conn = null;
+		Statement statement = null;
+		try {
+		 conn =DBUtility.getInstance();
 		
 		//get the statement
 		
-		Statement statement = conn.createStatement();
+		 statement = conn.createStatement();
 		
 		//execute query using statement
 		
-		String insertQuery = "insert into employee values (3,'lakshmi','female',200000,'it')";
+		String insertQuery = "insert into employee (name,gender,salary,dept) values ('divya','female',300000,'it')";
 		
 		statement.execute(insertQuery);
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+		}
+		
+		finally {
+			statement.close();
+			conn.close();
+		}
 
 	}
 

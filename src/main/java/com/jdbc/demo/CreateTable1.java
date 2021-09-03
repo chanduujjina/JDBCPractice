@@ -10,20 +10,29 @@ public class CreateTable1 {
 		
 		
 	// get the connection
-		
-		Connection connection = DBUtility.getInstance();
+		Connection connection = null;
+		Statement statement = null;
+		try {
+		 connection = DBUtility.getInstance();
 		
 		//get the statement from connection
 		
-		Statement statement = connection.createStatement();
+		 statement = connection.createStatement();
 		
 		//execute query
 	
-		String query = "create table sample (id int,name varchar(255),lab varchar(255),sampleType varchar(255))";
+		String query = "create table sample (id int NOT NULL AUTO_INCREMENT ,name varchar(255),lab varchar(255),sampleType varchar(255), PRIMARY KEY (id))";
 		
 		boolean value =statement.execute(query);
 		
 		System.out.println(value);
+		}catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			statement.close();
+			connection.close();
+		}
 
 	}
 
